@@ -1,0 +1,125 @@
+.landing {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    background-color: #272727;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #222222;
+    z-index: 2;
+  }
+  
+  .loginBtn {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none; /* Removes the underline from links */
+    font-size: 1rem;
+  }
+  
+  .main-section {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: #ffffff; 
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  .main-section::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 30%;
+    background: url('landing1.jpg') no-repeat center/cover;
+    border-radius: 0 0 50% 0; /* Curve on the right side */
+  }
+
+  .text-container {
+    position: relative;
+    display: flex;
+    align-items: center; /* Align text and button vertically */
+    justify-content: space-around; /* Distribute space between text and button */
+    width: 100%;
+  }
+
+  .description-text {
+    position: static;
+    z-index: auto;
+    color: #000;
+    width: 30%;
+    margin: 0 2%;
+  }
+  
+  .left-panel, .right-panel {
+    position: relative;
+    z-index: 3;
+    flex: 1;
+  }
+  
+  .left-panel {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .right-panel {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .findBtn {
+    padding: 1.5rem 3rem;
+    background-color: #222222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem; 
+    border-radius: 25px;
+    align-self: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+  }
+  
+  .footer {
+    padding: 1rem 2rem;
+    background-color: #222222;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .main-section::before {
+      height: 20%;
+    }
+  
+    .findBtn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+  
+  }
