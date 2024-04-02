@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "b103d898-f5c6-437e-953a-704d7aa1fe8e",
+		"name": "RentRight",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29654760",
+		"_collection_link": "https://interstellar-flare-312404.postman.co/workspace/comp3095~c4cec89c-1ec3-4c66-8d5c-216e9647daa6/collection/29654760-b103d898-f5c6-437e-953a-704d7aa1fe8e?action=share&source=collection_link&creator=29654760"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"John\",\r\n  \"last_name\": \"Doe\",\r\n  \"email\": \"test1@email.com\",\r\n  \"password\": \"test\",\r\n  \"gender\": \"Male\",\r\n  \"phone_number\": 1234567890,\r\n  \"role\": \"Manager\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"johndoe@email.com\",\r\n  \"password\": \"johndoe\",\r\n  \"role\": \"manager\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tenants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users?role=Tenant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "role",
+							"value": "Tenant"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Managers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users?role=Manager",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "role",
+							"value": "Manager"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Announcements",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/announcements",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"announcements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Announcement",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Testing Announcement System\",\r\n  \"body\": \"This is a test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/announcements",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"announcements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Jane Doe\",\r\n  \"unit\": 101,\r\n  \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut suscipit risus. Nulla ipsum diam, ullamcorper a fringilla rhoncus, vestibulum at urna. Sed quis tincidunt arcu. Praesent tincidunt sollicitudin urna, quis tristique velit maximus non. Phasellus viverra porttitor vehicula. Proin auctor tellus at turpis blandit, eget eleifend dolor lobortis. Donec.\",\r\n  \"status\": \"Open\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/requests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/requests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Application",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"John\",\r\n  \"last_name\": \"Doe\",\r\n  \"email\": \"test3@example.com\",\r\n  \"occupation\": \"Lawyer\",\r\n  \"gender\": \"Male\",\r\n  \"income\": 120000,\r\n  \"phone_number\": 4161231234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/applications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Applications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/applications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Listing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Cozy West End Unit\",\r\n  \"address\": \"604 West Ave. Toronto, ON\",\r\n  \"unitNum\": 804,\r\n  \"bedroomNum\": 1,\r\n  \"bathroomNum\": 1,\r\n  \"price\": \"$1800\",\r\n  \"imageUrls\": [\r\n    \"https://remax-listingphotos-ca5.imgix.net/rets-images-crea-can/9c473827d3f1915b1116dc0d77381c65bdf49e3d-6-large.jpeg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=35&h=640\",\r\n    \"https://remax-listingphotos-ca5.imgix.net/rets-images-crea-can/a43c06cdb18a12596f6f3e48d6dc14c0d964909b-21-large.jpeg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=35&h=640\",\r\n    \"https://remax-listingphotos-ca5.imgix.net/rets-images-crea-can/d077c1ae115bbc36c6a0b2b8958bb08ef1bf2fda-13-large.jpeg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=35&h=640\",\r\n    \"https://remax-listingphotos-ca5.imgix.net/rets-images-crea-can/15daf6a405a57f7808cf76992763ac8add28ad37-7-large.jpeg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=35&h=640\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/listings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"listings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Listings",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Remove listing",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/listings/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"listings",
+						"101"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
