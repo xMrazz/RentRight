@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: 100 },
+  address: { type: String, required: true, maxlength: 200 },
   unitNum: { type: Number, required: true, unique: true },
   bedroomNum: { type: Number, required: true },
   bathroomNum: { type: Number, required: true },

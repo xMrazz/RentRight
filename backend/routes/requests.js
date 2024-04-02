@@ -4,7 +4,7 @@ const requestModel = require('../models/request');
 const mongoose = require('mongoose');
 
 // Get All Requests
-routes.get("/requests", async (req, res) => {
+routes.get("/", async (req, res) => {
     try {
         const requestList = await requestModel.find();
         res.status(200).json(requestList);
@@ -15,7 +15,7 @@ routes.get("/requests", async (req, res) => {
 });
 
 // Add NEW Request
-routes.post("/requests", async (req, res) => {
+routes.post("/", async (req, res) => {
     try {
         const newRequest = new requestModel(req.body);
         const savedRequest = await newRequest.save();
@@ -27,7 +27,7 @@ routes.post("/requests", async (req, res) => {
 });
 
 // Update existing Request By Id
-routes.put("/requests/:rid", async (req, res) => {
+routes.put("/:rid", async (req, res) => {
     try {
         const updatedRequest = await requestModel.findByIdAndUpdate(req.params.rid, req.body, { new: true });
         res.status(200).json(updatedRequest);
@@ -37,7 +37,7 @@ routes.put("/requests/:rid", async (req, res) => {
 });
 
 // Get Request By Id
-routes.get("/requests/:rid", async (req, res) => {
+routes.get("/:rid", async (req, res) => {
     try {
         const requestId = req.params.rid;
         const request = await requestModel.findById(requestId);

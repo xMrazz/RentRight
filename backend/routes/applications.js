@@ -2,9 +2,10 @@ const express = require('express');
 const routes = express.Router();
 const applicationModel = require('../models/application');
 const mongoose = require('mongoose');
+const application = require('../models/application');
 
 // Get All Requests
-routes.get("/applications", async (req, res) => {
+routes.get("/", async (req, res) => {
     try {
         const applicationList = await applicationModel.find();
         res.status(200).json(applicationList);
@@ -15,7 +16,7 @@ routes.get("/applications", async (req, res) => {
 });
 
 // Add NEW Application
-routes.post("/applications", async (req, res) => {
+routes.post("/", async (req, res) => {
     try {
         const newApplication = new applicationModel(req.body);
         const savedApplication = await newApplication.save();
@@ -27,7 +28,7 @@ routes.post("/applications", async (req, res) => {
 });
 
 // Get Application By Id
-routes.get("/applications/:aid", async (req, res) => {
+routes.get("/:aid", async (req, res) => {
     try {
         const applicationId = req.params.aid;
         const application = await requestModel.findById(applicationId);
@@ -36,6 +37,20 @@ routes.get("/applications/:aid", async (req, res) => {
         }
         res.status(200).json({ status: true, data: tenant });
     } catch (error) {
+        res.status(500).json({ status: false, message: "Internal Server Error" });
+    }
+});
+
+// Delete
+routes.delete("/:aid", async (req, res) => {
+    try {
+        const deletedApplication = await application.findByIdAndRemove(req.params.aid);
+        if (!deletedApplication) {
+            return res.status(404).json({ status: false, message: 'Application not found' });
+        }
+        res.status(204).json({ status: true, message: 'Application deleted successfully' });
+    } catch (error) {
+        console.error("Error deleting application:", error);
         res.status(500).json({ status: false, message: "Internal Server Error" });
     }
 });

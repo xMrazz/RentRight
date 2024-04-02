@@ -1,5 +1,5 @@
 const express = require('express');
-const Announcement = require('../models/announcement'); // Adjust the path to where your model is located
+const Announcement = require('../models/announcement');
 const router = express.Router();
 
 // Get All Announcements
@@ -32,10 +32,7 @@ router.post('/', async (req, res) => {
 // Delete an Announcement
 router.delete('/:id', async (req, res) => {
   try {
-    const announcement = await Announcement.findById(req.params.id);
-    if (!announcement) return res.status(404).json({ message: 'Announcement not found' });
-
-    await announcement.remove();
+    await Announcement.findByIdAndDelete(req.params.id);
     res.json({ message: 'Deleted Announcement' });
   } catch (error) {
     res.status(500).json({ message: error.message });
