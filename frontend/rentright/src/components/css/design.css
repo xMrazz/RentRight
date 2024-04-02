@@ -130,3 +130,18 @@ body {
   position: relative;
   z-index: 2;
 }
+
+.goBackBtn {
+  padding: 0.5rem 1rem;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: auto;
+  border-radius: 5px;
+}
+
+.goBackBtn:hover {
+  background-color: #409743;
+}

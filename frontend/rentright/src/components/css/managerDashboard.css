@@ -235,3 +235,62 @@
   height: 350px;
   resize: none;
 }
+
+.contact-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-button:hover {
+  background-color: #45a049;
+}
+
+.application-item {
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.deny-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #f44336; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.deny-button:hover {
+  background-color: #d32f2f;
+}
+
+.image-url-input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.image-url-input-group input {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.image-url-addition, .form-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.image-url-addition button, .form-submit button {
+  width: auto;
+  padding: 5px 20px; 
+}

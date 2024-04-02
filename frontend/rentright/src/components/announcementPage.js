@@ -20,25 +20,27 @@ function AnnouncementPage() {
   }, []);
 
   const handleBackToDashboard = () => {
+    // The role is stored in localStorage upon login
     const userRole = localStorage.getItem('role');
-    
+
+    // Navigate based on the role
     if (userRole === 'Manager') {
       navigate('/manager-dashboard');
     } else if (userRole === 'Tenant') {
       navigate('/tenant-dashboard');
     } else {
-      navigate('/login');
+      navigate('/login'); // Default navigation if no role is found
     }
   };
 
   return (
     <div className="announcement-page-container">
-        <header className="navbar">
-            <h1>RentRight</h1>
-            <button className="back-button" onClick={handleBackToDashboard}>Back to Dashboard</button>
-        </header>
+      <header className="navbar">
+        <h1>RentRight</h1>
+        <button className="back-button" onClick={handleBackToDashboard}>Back to Dashboard</button>
+      </header>
 
-        <div className="content">
+      <main className="content">
         <h1 className="page-title">Announcements</h1>
         <div className="announcement-list">
           {announcements.map((announcement) => (
@@ -49,7 +51,7 @@ function AnnouncementPage() {
             </div>
           ))}
         </div>
-      </div>
+      </main>
 
       <footer className="footer">
         <p>© 2024 RentRight by PixelPerfect</p>

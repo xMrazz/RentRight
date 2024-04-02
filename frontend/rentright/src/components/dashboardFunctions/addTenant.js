@@ -45,7 +45,7 @@ function AddTenant() {
                     <option value="" disabled>Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                    <option value="Other">Other</option>
+                    <option value="Other">Other</option>    
                 </select>
                 <input type="text" name="phone_number" placeholder="Phone Number" value={formData.phone_number} onChange={handleChange} />
                 <input type="number" name="unit" placeholder="Unit Number" value={formData.unit} onChange={handleChange} />

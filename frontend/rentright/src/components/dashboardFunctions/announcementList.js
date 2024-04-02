@@ -45,8 +45,10 @@ function AnnouncementList() {
         <div className="modal-content">
           <h2>Confirm Deletion</h2>
           <p>Are you sure you want to delete this announcement?</p>
-          <button onClick={onConfirm} className="delete-button">Yes</button>
-          <button onClick={onCancel} className="close-modal">No</button>
+          <div className="modal-footer">
+            <button onClick={onConfirm} className="delete-button">Yes</button>
+            <button onClick={onCancel} className="close-modal">No</button>
+          </div>
         </div>
       </div>
     );

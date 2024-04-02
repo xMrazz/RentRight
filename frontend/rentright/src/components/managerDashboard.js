@@ -4,6 +4,10 @@ import AddTenant from './dashboardFunctions/addTenant';
 import TenantList from './dashboardFunctions/tenantList';
 import MakeAnnouncement from './dashboardFunctions/makeAnnouncement';
 import AnnouncementList from './dashboardFunctions/announcementList';
+import MaintenanceRequests from './dashboardFunctions/maintenanceRequests';
+import Applications from './dashboardFunctions/applicationList';
+import ViewListings from './dashboardFunctions/viewListings';
+import AddListing from './dashboardFunctions/addListing';
 import './css/managerDashboard.css';
 
 function ManagerDashboard() {
@@ -12,11 +16,19 @@ function ManagerDashboard() {
   const [showTenantList, setShowTenantList] = useState(false);
   const [showMakeAnnouncement, setShowMakeAnnouncement] = useState(false);
   const [showAnnouncementList, setShowAnnouncementList] = useState(false);
+  const [showMaintenanceRequests, setShowMaintenanceRequests] = useState(false);
+  const [showApplications, setShowApplications] = useState(false);
+  const [showListingsModal, setShowListingsModal] = useState(false);
+  const [showAddListingModal, setShowAddListingModal] = useState(false);
   const username = localStorage.getItem('name');
 
   const handleSignOut = () => {
     localStorage.clear();
     navigate('/login');
+  };
+
+  const toggleListingsModal = () => {
+    setShowListingsModal(!showListingsModal);
   };
 
   const toggleAddTenantModal = () => {
@@ -33,6 +45,18 @@ function ManagerDashboard() {
 
   const toggleAnnouncementList = () => {
     setShowAnnouncementList(!showAnnouncementList);
+  }
+
+  const toggleMaintenanceRequests = () => {
+    setShowMaintenanceRequests(!showMaintenanceRequests);
+  }
+
+  const toggleApplications = () => {
+    setShowApplications(!showApplications);
+  }
+
+  const toggleAddListingModal = () => {
+    setShowAddListingModal(!showAddListingModal);
   }
 
   return (
@@ -60,13 +84,13 @@ function ManagerDashboard() {
           </div>
           <div className="buttons-column">
             <h3>Listings</h3>
-            <button onClick={() => navigate('/add-listing')}>Add Listing</button>
-            <button onClick={() => navigate('/edit-listing')}>Listings</button>
+            <button onClick={toggleAddListingModal}>Add Listing</button>
+            <button onClick={toggleListingsModal}>Listings</button>
           </div>
           <div className="buttons-column">
             <h3>Rental</h3>
-            <button onClick={() => navigate('/rent-applications')}>Rent Applications</button>
-            <button onClick={() => navigate('/maintenance-requests')}>Maintenance Requests</button>
+            <button onClick={toggleApplications}>Rent Applications</button>
+            <button onClick={toggleMaintenanceRequests}>Maintenance Requests</button>
           </div>
           <div className="buttons-column">
             <h3>Announcements</h3>
@@ -103,6 +127,38 @@ function ManagerDashboard() {
             <div className="modal-content">
               <AnnouncementList />
               <button onClick={toggleAnnouncementList} className="close-modal">Close</button>
+            </div>
+          </div>
+        )}
+        {showMaintenanceRequests && (
+          <div className="modal-background">
+            <div className="modal-content">
+              <MaintenanceRequests />
+              <button onClick={toggleMaintenanceRequests} className="close-modal">Close</button>
+            </div>
+          </div>
+        )}
+        {showApplications && (
+          <div className="modal-background">
+            <div className="modal-content">
+              <Applications />
+              <button onClick={toggleApplications} className="close-modal">Close</button>
+            </div>
+          </div>
+        )}
+        {showListingsModal && (
+          <div className="modal-background">
+            <div className="modal-content">
+              <ViewListings isVisible={showListingsModal} onClose={() => setShowListingsModal(false)} />
+              <button onClick={() => setShowListingsModal(false)} className="close-modal">Close</button>
+            </div>
+          </div>
+        )}
+        {showAddListingModal && (
+          <div className="modal-background">  
+            <div className="modal-content">
+              <AddListing onClose={toggleAddListingModal} />
+              <button onClick={toggleAddListingModal} className="close-modal">Close</button>
             </div>
           </div>
         )}

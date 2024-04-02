@@ -16,12 +16,9 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/api/v1/auth/login', credentials);
-      console.log("Login response:", response.data);
-
       localStorage.setItem('name', response.data.user.name); // Save the user's name
       localStorage.setItem('role', response.data.user.role); // Save the user's role
 
-      // Navigate based on the role determined by the backend
       if (response.data.user.role === 'Manager') {
         navigate('/manager-dashboard');
       } else if (response.data.user.role === 'Tenant') {
@@ -34,10 +31,15 @@ function Login() {
     }
   };
 
+  const handleGoBack = () => {
+    navigate('/');
+  };
+
   return (
     <div className="login-container">
       <header className="navbar">
         <a href="/" className="RentRightBtn">RentRight</a>
+        <button onClick={handleGoBack} className="goBackBtn">Go Back</button>
       </header>
       <div className="container">
         <h2 className="header">Login</h2>
@@ -46,23 +48,11 @@ function Login() {
           <form onSubmit={handleSubmit}>
             <div className="input-group">
               <label>Email:</label>
-              <input
-                type="email"
-                name="email"
-                value={credentials.email}
-                onChange={handleChange}
-                required
-              />
+              <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
             </div>
             <div className="input-group">
               <label>Password:</label>
-              <input
-                type="password"
-                name="password"
-                value={credentials.password}
-                onChange={handleChange}
-                required
-              />
+              <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
             </div>
             <button className="button" type="submit">Login</button>
           </form>

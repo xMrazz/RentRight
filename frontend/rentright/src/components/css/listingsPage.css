@@ -1,0 +1,323 @@
+.listings-page-container {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.listings-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #222222;
+}
+
+.header-title {
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.listings-footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222222;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.listings-title {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 listings in a row */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.listing-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.listing-card:hover {
+  transform: translateY(-5px);
+}
+
+.listing-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.listing-info {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.view-button {
+  padding: 0.5rem 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.view-button:hover {
+  background-color: #333;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border: none;
+  background: none;
+  color: #333;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.modal-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 400px;
+}
+
+.image-nav {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.image-nav:focus {
+  outline: none;
+}
+
+.submit-application {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-application:hover {
+  background-color: #0056b3;
+}
+
+.modal-details {
+  text-align: center;
+  padding: 1rem;
+}
+
+.listing-info {
+  padding: 1rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Responsive grid for listings */
+@media (max-width: 900px) {
+  .listings-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 listings in a row for small screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .listings-grid {
+    grid-template-columns: 1fr; /* 1 listing per row for mobile screens */
+  }
+}
+
+.view-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.view-button:hover {
+  background-color: #0056b3;
+}
+
+.image-nav {
+  background-color: transparent;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 10px;
+  border: none;
+}
+
+/* This ensures the modal content is scrollable if it exceeds the window height */
+.modal-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-details h3 {
+  margin-bottom: 0.5rem;
+}
+
+.modal-details p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.submit-application {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}
+
+.listings-footer {
+  margin-top: auto;
+}
+
+/* Application Form CSS */
+
+.application-form-modal {
+  background-color: #fff;
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.application-form-modal h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.application-form-modal form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.application-form-modal input,
+.application-form-modal select {
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.application-form-modal .close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border: none;
+  background: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.application-form-modal button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.application-form-modal button[type="submit"]:hover {
+  background-color: #0056b3;
+}
